@@ -7,6 +7,9 @@ const server = net.createServer((socket) => {
 
   socket.on('data', (data) => {
     console.log(`📨 ได้รับข้อมูล: ${data.toString()}`)
+
+    // ส่งข้อมูลกลับไปหา Client
+    socket.write(`🔁 Server ได้รับแล้ว: ${data.toString()}`)
   })
 
   socket.on('end', () => {
